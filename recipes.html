@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Рецепты • ВкусЖдёт</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:#0f0f0f; color:#e0d9d0; line-height:1.7; overflow-x:hidden; }
+    header {
+      padding:140px 5% 100px; 
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+                  url('https://images.unsplash.com/photo-1555939594-58056f625634?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80') center/cover;
+      color:white; text-align:center;
+      animation: headerZoom 25s infinite alternate ease-in-out;
+    }
+    @keyframes headerZoom { 0% {background-size:110%;} 100% {background-size:130%;} }
+    header h1 { font-family:'Playfair Display',serif; font-size:clamp(4rem,8vw,7rem); margin-bottom:1.5rem; animation: fadeInText 1.5s ease-out; }
+    @keyframes fadeInText { from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
+    .back { display:inline-block; margin:2.5rem 0; color:#e65c3d; font-weight:600; text-decoration:none; font-size:1.3rem; }
+    .back:hover { text-decoration:underline; }
+    section { padding:80px 5% 120px; }
+    .recipe { 
+      max-width:1200px; margin:0 auto 120px; background:#1a1a1a; border-radius:24px; overflow:hidden; 
+      box-shadow:0 20px 60px rgba(0,0,0,0.6); opacity:0; transform:translateY(60px); transition:opacity 1.2s ease-out, transform 1.2s ease-out;
+    }
+    .recipe.visible { opacity:1; transform:translateY(0); }
+    .recipe-header { padding:4rem 6%; background:#0f0f0f; color:white; }
+    .recipe-header h2 { font-family:'Playfair Display',serif; font-size:3.5rem; margin-bottom:1.2rem; color:#f5e8d3; }
+    .meta { font-size:1.2rem; opacity:0.85; }
+    .content { padding:4rem 6%; }
+    .steps { margin:3rem 0; }
+    .step { display:flex; margin-bottom:3rem; gap:2.5rem; align-items:flex-start; }
+    .step-number { font-family:'Playfair Display',serif; font-size:3.5rem; color:#e65c3d; min-width:70px; text-align:center; line-height:1; }
+    .step-text h4 { font-size:1.6rem; margin-bottom:0.8rem; color:#f5e8d3; }
+    .ingredients { background:#222; padding:2.5rem; border-radius:16px; margin:2.5rem 0; }
+    .ingredients ul { list-style:none; columns:2; column-gap:4rem; }
+    .ingredients li { margin-bottom:1rem; font-size:1.15rem; }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin:4rem 0; }
+    .gallery img { 
+      width:100%; height:240px; object-fit:cover; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,0.4);
+      transition:transform 0.6s ease;
+    }
+    .gallery img:hover { transform:scale(1.1); }
+    footer { background:#0a0a0a; color:#b0a090; text-align:center; padding:5rem 1rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Рецепты от ВкусЖдёт</h1>
+    <p>Готовим лучшие блюда у себя на кухне — пошагово и с душой</p>
+    <a href="index.html" class="back">← На главную</a>
+  </header>
+
+  <section>
+
+    <div id="margherita" class="recipe">
+      <div class="recipe-header">
+        <h2>Маргарита Премиум</h2>
+        <div class="meta">Время: 90 мин • Порции: 2 • Сложность: средняя</div>
+      </div>
+      <div class="content">
+        <h3>Ингредиенты</h3>
+        <div class="ingredients">
+          <ul>
+            <li>Мука — 300 г</li>
+            <li>Вода тёплая — 180 мл</li>
+            <li>Дрожжи сухие — 6 г</li>
+            <li>Оливковое масло — 2 ст.л.</li>
+            <li>Соль — 8 г</li>
+            <li>Томаты сан-марцано — 400 г (или хорошие консервированные)</li>
+            <li>Моцарелла бурата или классическая — 200 г</li>
+            <li>Свежий базилик — пучок</li>
+            <li>Оливковое масло extra virgin</li>
+          </ul>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              <h4>Тесто</h4>
+              <p>Растворите дрожжи в тёплой воде с щепоткой сахара, дайте постоять 10 мин. Добавьте муку, соль, масло — замесите мягкое тесто. Дайте подняться 60–90 мин в тепле.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              <h4>Соус</h4>
+              <p>Разомните томаты руками или блендером, посолите, добавьте орегано/базилик и масло. Не варите — классика сырой соус.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-text">
+              <h4>Сборка и выпечка</h4>
+              <p>Раскатайте тесто очень тонко (30–32 см). Нанесите соус, разложите моцареллу кусочками, сбрызните маслом. Пеките при 250–280°C 8–12 мин на камне/перевёрнутом противне. Украсьте свежим базиликом.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d174?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" alt="Процесс раскатки теста для Маргариты">
+          <img src="https://images.unsplash.com/photo-1600028068383-ea11a7a101f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" alt="Сборка пиццы Маргарита">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Готовая Маргарита с базиликом">
+        </div>
+      </div>
+    </div>
+
+    <div id="smash" class="recipe">
+      <div class="recipe-header">
+        <h2>Black Angus Smash Burger</h2>
+        <div class="meta">Время: 25 мин • Порции: 2 (двойной) • Сложность: легко</div>
+      </div>
+      <div class="content">
+        <h3>Ингредиенты</h3>
+        <div class="ingredients">
+          <ul>
+            <li>Фарш Angus (20–25% жирности) — 400 г</li>
+            <li>Соль + свежемолотый перец</li>
+            <li>Чеддер (или американский сыр) — 4 ломтика</li>
+            <li>Бриошь или булочки для бургеров — 2 шт</li>
+            <li>Карамелизованный лук (или свежий красный)</li>
+            <li>Соус: майо + кетчуп + горчица + солёные огурцы</li>
+            <li>Сливочное масло для жарки булочек</li>
+          </ul>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              <h4>Подготовка</h4>
+              <p>Разделите холодный фарш на 4 шарика по 100 г (не мните!). Разогрейте чугунную сковороду/планчу до очень высокой температуры.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              <h4>Смаш и жарка</h4>
+              <p>Выложите шарики, сразу расплющите широкой лопаткой до ~1 см толщиной. Посолите/поперчите. Жарьте 2–2.5 мин до хрустящей корочки, переверните, положите сыр — дайте расплавиться 30–60 сек.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-text">
+              <h4>Сборка</h4>
+              <p>Поджарьте булочки на масле. Соус на нижнюю часть, лук, двойная котлета, верхняя булочка. Готово за 30 сек!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=999&q=80" alt="Процесс смаша котлеты">
+          <img src="https://images.unsplash.com/photo-1585238342021-63b22d54ed40?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" alt="Сыр плавится на smash burger">
+          <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Готовый сочный Smash Burger">
+        </div>
+      </div>
+    </div>
+
+    <div id="philadelphia" class="recipe">
+      <div class="recipe-header">
+        <h2>Филадельфия De Luxe</h2>
+        <div class="meta">Время: 40 мин • Порции: 4 ролла • Сложность: средняя</div>
+      </div>
+      <div class="content">
+        <h3>Ингредиенты</h3>
+        <div class="ingredients">
+          <ul>
+            <li>Рис для суши — 300 г (готового)</li>
+            <li>Нори — 4 листа</li>
+            <li>Сливочный сыр (Philadelphia или аналог) — 200 г</li>
+            <li>Слабосолёный/копчёный лосось — 300 г</li>
+            <li>Авокадо — 2 шт</li>
+            <li>Огурец свежий — 1 шт (опционально)</li>
+            <li>Уксус рисовый + сахар + соль для риса</li>
+          </ul>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              <h4>Рис</h4>
+              <p>Сварите рис по инструкции, заправьте уксусной смесью (3 ст.л. уксуса + 1 ст.л. сахара + 1 ч.л. соли на 300 г риса). Остудите.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              <h4>Сборка урамаки</h4>
+              <p>На коврик — нори блестящей стороной вниз. Рис тонким слоем (оставьте 2 см сверху). Переверните. По центру — полоска сыра, ломтики авокадо/огурца, лосось сверху.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-text">
+              <h4>Формовка и нарезка</h4>
+              <p>Сверните плотный ролл, смочите край нори водой. Нарежьте острым ножом на 8 частей (смачивайте нож!).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" alt="Процесс скручивания Филадельфии">
+          <img src="https://images.unsplash.com/photo-1611143669155-af0944f9e8a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Нарезка роллов Филадельфия">
+          <img src="https://images.unsplash.com/photo-1583622470522-43a7aa50629f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Готовые роллы Филадельфия с лососем">
+        </div>
+      </div>
+    </div>
+
+    <div id="volcano" class="recipe">
+      <div class="recipe-header">
+        <h2>Шоколадный Вулкан (Lava Cake)</h2>
+        <div class="meta">Время: 25 мин • Порции: 4 • Сложность: легко</div>
+      </div>
+      <div class="content">
+        <h3>Ингредиенты</h3>
+        <div class="ingredients">
+          <ul>
+            <li>Тёмный шоколад (60–70%) — 100 г</li>
+            <li>Сливочное масло — 100 г</li>
+            <li>Яйца — 2 шт + 2 желтка</li>
+            <li>Сахар — 50–60 г</li>
+            <li>Мука — 40 г</li>
+            <li>Соль — щепотка</li>
+            <li>Ваниль/ром — по желанию</li>
+          </ul>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-text">
+              <h4>Шоколад + масло</h4>
+              <p>Растопите шоколад с маслом на водяной бане или в микроволновке (не перегрейте!). Перемешайте до гладкости.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-text">
+              <h4>Яйца + тесто</h4>
+              <p>Взбейте яйца, желтки, сахар и соль до пышности. Влейте тёплую шоколадную смесь, просейте муку — перемешайте лопаткой аккуратно.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-text">
+              <h4>Выпекание</h4>
+              <p>Разлейте по смазанным/присыпанным формочкам ( ramekins ). Пеките при 200–210°C 10–12 мин (края схватились, центр дрожит). Дайте постоять 1 мин, переверните на тарелку — лава вытечет!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" alt="Тесто для шоколадного вулкана">
+          <img src="https://images.unsplash.com/photo-1612201142850-7873bc1661b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Вытекающая лава из десерта">
+          <img src="https://images.unsplash.com/photo-1563729783412-159409e6d8a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Готовый шоколадный вулкан с мороженым">
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2025–2026 ВкусЖдёт • Готовьте с удовольствием! • Бендеры</p>
+  </footer>
+
+  <!-- Плавающая кнопка Telegram (из прошлого) -->
+  <a href="https://t.me/твой_ник" target="_blank" rel="noopener noreferrer"
+     style="position:fixed; bottom:30px; right:30px; z-index:9999; display:flex; align-items:center; justify-content:center; width:70px; height:70px; background:#0088cc; color:white; border-radius:50%; box-shadow:0 10px 30px rgba(0,136,204,0.5); transition:all 0.4s ease; animation:pulse 2s infinite ease-in-out;">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.896 16.312c-.164.468-.508.84-.972 1.016-.684.264-1.604.064-2.508-.48l-3.78-2.772c-.372-.272-.62-.708-.668-1.192l-.312-3.172c-.036-.372.108-.74.392-.98l4.908-3.78c.492-.38 1.18-.292 1.56.2.38.492.292 1.18-.2 1.56l-4.3 3.312.236 2.396 3.18 2.332c.492.36 1.172.272 1.56-.22.388-.492.3-1.172-.192-1.56z"/></svg>
+  </a>
+  <style>
+    @keyframes pulse { 0%,100% {transform:scale(1);} 50% {transform:scale(1.08);} }
+  </style>
+
+  <script>
+    const recipes = document.querySelectorAll('.recipe');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    recipes.forEach(r => observer.observe(r));
+  </script>
+
+</body>
+</html>
